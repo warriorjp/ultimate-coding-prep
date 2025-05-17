@@ -1,0 +1,108 @@
+# Roadmap for Preparing for FANG Companies
+
+This roadmap will guide you through the essential topics, skills, and strategies for successfully preparing for software engineering roles at top FANG companies (Facebook/Meta, Amazon, Netflix, Google, and similar tech giants).
+
+---
+
+## 1. **Understand the Process**
+- **Application:** Resume, referrals, LinkedIn, and company portals.
+- **Online Assessment:** Coding platforms (HackerRank, Codility, LeetCode).
+- **Technical Interviews:** Data structures, algorithms, system design.
+- **Behavioral Interviews:** Leadership principles, past experiences, culture fit.
+- **Onsite Interviews:** Combination of technical and behavioral rounds.
+
+---
+
+## 2. **Core Topics to Master**
+
+### Data Structures
+- Arrays, Strings
+- Linked Lists
+- Stacks, Queues
+- Trees (Binary, BST, Trie)
+- Heaps, Priority Queues
+- Hash Tables, Hash Maps
+- Graphs
+
+### Algorithms
+- Sorting and Searching
+- Recursion and Backtracking
+- Dynamic Programming
+- Greedy Algorithms
+- Divide and Conquer
+- Graph Algorithms (BFS, DFS, Dijkstra, Topological Sort)
+- Bit Manipulation
+
+### System Design (for experienced roles)
+- Designing Scalable Systems
+- Databases (SQL/NoSQL)
+- Caching, Load Balancing
+- CAP Theorem, Consistency, Partitioning
+- RESTful APIs, Microservices
+- Real-world Design Questions (URL Shortener, Messenger, etc.)
+
+---
+
+## 3. **Coding Practice**
+
+- **LeetCode:** Focus on "Top Interview Questions", "Blind 75", and company-specific questions.
+- **HackerRank/CodeSignal:** Practice timed assessments.
+- **Mock Interviews:** Use Pramp, Interviewing.io, or with peers.
+
+---
+
+## 4. **Behavioral Preparation**
+
+- **STAR Method:** Situation, Task, Action, Result for answering experience-based questions.
+- **Amazon Leadership Principles:** Especially for Amazon interviews.
+- **Company Values:** Review and relate your experiences.
+
+---
+
+## 5. **Resume & Networking**
+
+- **Resume:** Focus on achievements, quantifiable impact, relevant experience.
+- **LinkedIn:** Keep updated, connect with recruiters and employees.
+- **Referrals:** Reach out to current employees for referrals.
+
+---
+
+## 6. **Resources**
+
+- **Books:** Cracking the Coding Interview, Elements of Programming Interviews, System Design Interview by Alex Xu.
+- **Websites:** LeetCode, GeeksforGeeks, InterviewBit, System Design Primer (GitHub).
+- **YouTube:** TechLead, Gaurav Sen, Tushar Roy.
+
+---
+
+## 7. **Timeline Suggestion**
+
+| Week | Focus Area                       |
+|------|----------------------------------|
+| 1-2  | Arrays, Strings, Linked Lists    |
+| 3-4  | Stacks, Queues, Trees            |
+| 5-6  | Graphs, Dynamic Programming      |
+| 7-8  | System Design (if experienced)   |
+| 9-10 | Mock Interviews, Behavioral Prep |
+
+---
+
+## 8. **Tips**
+
+- Be consistent: Practice every day.
+- Review mistakes: Learn from wrong answers.
+- Simulate real interviews: Time yourself.
+- Take care of health: Sleep, exercise, breaks.
+
+---
+
+## 9. **Final Week**
+
+- Focus on weak areas.
+- Do mock interviews.
+- Prepare your interview setup (quiet space, stable internet).
+- Get plenty of rest!
+
+---
+
+Good luck on your FANG journey! 🚀

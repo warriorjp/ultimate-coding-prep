@@ -1,0 +1,23 @@
+
+✅ For Sorted Array: Use Two-Pointer Technique
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+
+public static void findPairsSorted(int[] arr, int targetSum) {
+    int left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == targetSum) {
+            System.out.println("(" + arr[left] + ", " + arr[right] + ")");
+            left++;
+            right--;
+        } else if (sum < targetSum) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+}
+------------------------------------------------------------

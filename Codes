@@ -21,3 +21,21 @@ public static void findPairsSorted(int[] arr, int targetSum) {
     }
 }
 ------------------------------------------------------------
+✅ Binary Search : Iterative approch
+Time Complexity: O(logn)
+Space Complexity: O(logn)
+
+public int binarySearch(int[] arr, int target) {
+    int low = 0, high = arr.length - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1; // Not found
+}
+

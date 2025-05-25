@@ -21,6 +21,36 @@ public static void findPairsSorted(int[] arr, int targetSum) {
     }
 }
 ------------------------------------------------------------
+✅ For UnSorted Array: Use Two-Pointer Technique
+public class PairWithTargetSum {
+    public static void main(String[] args) {
+        int[] arr = {8, 7, 2, 5, 3, 1};
+        int target = 10;
+        
+        if (findPair(arr, target)) {
+            System.out.println("Pair found!");
+        } else {
+            System.out.println("Pair not found.");
+        }
+    }
+
+    static boolean findPair(int[] arr, int target) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : arr) {
+            int complement = target - num;
+            if (set.contains(complement)) {
+                System.out.println("Pair is: (" + num + ", " + complement + ")");
+                return true;
+            }
+            set.add(num);
+        }
+
+        return false;
+    }
+}
+
+------------------------------------------------------------
 ✅ Binary Search : Iterative approch
 Time Complexity: O(logn)
 Space Complexity: O(logn)

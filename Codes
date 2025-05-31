@@ -1,3 +1,4 @@
+Find a Pair of sums for target value  :
 
 ✅ For Sorted Array: Use Two-Pointer Technique
 Time Complexity: O(n)
@@ -21,7 +22,8 @@ public static void findPairsSorted(int[] arr, int targetSum) {
     }
 }
 ------------------------------------------------------------
-✅ For UnSorted Array: Use Two-Pointer Technique
+✅ For Unsorted Array: Use Two-Pointer Technique
+
 public class PairWithTargetSum {
     public static void main(String[] args) {
         int[] arr = {8, 7, 2, 5, 3, 1};
@@ -37,7 +39,7 @@ public class PairWithTargetSum {
     static boolean findPair(int[] arr, int target) {
         HashSet<Integer> set = new HashSet<>();
 
-        for (int num : arr) {
+        for (int num: arr) {
             int complement = target - num;
             if (set.contains(complement)) {
                 System.out.println("Pair is: (" + num + ", " + complement + ")");
@@ -51,7 +53,7 @@ public class PairWithTargetSum {
 }
 
 ------------------------------------------------------------
-✅ Binary Search : Iterative approch
+✅ Binary Search: Iterative approach
 Time Complexity: O(logn)
 Space Complexity: O(logn)
 
@@ -68,4 +70,46 @@ public int binarySearch(int[] arr, int target) {
     }
     return -1; // Not found
 }
+
+------------------------------------------------------------
+✅ Search in Rotated Sorted Array:
+Time Complexity: O(logn)
+Space Complexity: O(1)
+
+int arr[]={4,5,6,7,0,1,2};
+int tar=0;
+
+public static int rotatedSearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            return mid;
+        }
+
+        // Left half is sorted
+        if (arr[left] <= arr[mid]) {
+            if (arr[left] <= target && target < arr[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        // Right half is sorted
+        else {
+            if (arr[mid] < target && target <= arr[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    return -1;
+}
+
+
+
 

@@ -149,7 +149,32 @@ public class Main
         return result;
     }
 }
+*******************************************************************************/
+✅ Max sum of sub-array:  Kadane’s Algorithm 
+Time Complexity: O(n)
+Space Complexity: O(1)
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+    int arr[]={1,-4,1,2,8,-3,4,5,-1};
+    maxSubArraySum(arr);
+	}
+	
+public static void maxSubArraySum(int[] arr) {
+       int currentSum=0;
+       int maxSum=0;
+       for(int num:arr){
+           currentSum+=num;
+           maxSum=Math.max(currentSum,maxSum);
+           if(currentSum<0){
+               currentSum=0;
+           }
+       }
+       System.out.println("maxSubArraySum : "+maxSum); 
+}
+}
 
 
 

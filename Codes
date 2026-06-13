@@ -1,4 +1,26 @@
-Find a Pair of sums for target value  :
+✅ Find a Pair of sums for target value  :
+
+✅ Unsorted Array → HashSet (Optimal)
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+public static List<int[]> findPairs(int[] arr, int target) {
+    Set<Integer> seen = new HashSet<>();
+    List<int[]> result = new ArrayList<>();
+
+    for (int num : arr) {
+        int complement = target - num;
+
+        if (seen.contains(complement)) {
+            result.add(new int[]{complement, num});
+        }
+
+        seen.add(num);
+    }
+
+    return result;
+}
 
 ✅ For Sorted Array: Use Two-Pointer Technique
 Time Complexity: O(n)

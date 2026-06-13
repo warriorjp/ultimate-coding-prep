@@ -1,6 +1,43 @@
-✅ Find a Pair of sums for target value  :
+✅ Binary Search: Iterative approach
+Time Complexity: O(logn)
+Space Complexity: O(logn)
 
-✅ For Sorted Array: Use Two-Pointer Technique
+public int binarySearch(int[] arr, int target) {
+    int low = 0, high = arr.length - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1; // Not found
+}
+
+------------------------------------------------------------
+✅ For Unsorted Array: Use Two-Pointer Technique
+
+    static boolean findPair(int[] arr, int target) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num: arr) {
+            int complement = target - num;
+            if (set.contains(complement)) {
+                System.out.println("Pair is: (" + num + ", " + complement + ")");
+                return true;
+            }
+            set.add(num);
+        }
+
+        return false;
+    }
+------------------------------------------------------------
+
+✅ Find a Pair of sums for target value  :
+For Sorted Array: Use Two-Pointer Technique
+
 Time Complexity: O(n)
 Space Complexity: O(1)
 
@@ -21,57 +58,9 @@ public static void findPairsSorted(int[] arr, int targetSum) {
         }
     }
 }
-------------------------------------------------------------
-✅ For Unsorted Array: Use Two-Pointer Technique
-
-    static boolean findPair(int[] arr, int target) {
-        HashSet<Integer> set = new HashSet<>();
-
-        for (int num: arr) {
-            int complement = target - num;
-            if (set.contains(complement)) {
-                System.out.println("Pair is: (" + num + ", " + complement + ")");
-                return true;
-            }
-            set.add(num);
-        }
-
-        return false;
-    }
-
-public class PairWithTargetSum {
-    public static void main(String[] args) {
-        int[] arr = {8, 7, 2, 5, 3, 1};
-        int target = 10;
-        
-        if (findPair(arr, target)) {
-            System.out.println("Pair found!");
-        } else {
-            System.out.println("Pair not found.");
-        }
-    }
-
 
 ------------------------------------------------------------
-✅ Binary Search: Iterative approach
-Time Complexity: O(logn)
-Space Complexity: O(logn)
 
-public int binarySearch(int[] arr, int target) {
-    int low = 0, high = arr.length - 1;
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] == target)
-            return mid;
-        else if (arr[mid] < target)
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
-    return -1; // Not found
-}
-
-------------------------------------------------------------
 ✅ Search in Rotated Sorted Array:
 Time Complexity: O(logn)
 Space Complexity: O(1)

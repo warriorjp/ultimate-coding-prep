@@ -201,6 +201,56 @@ class Solution {
 }
 
 *******************************************************************************/
+✅ Find Missing and Repeated Values in a Grid
+
+
+### Example 2
+
+Input:
+grid = [[9,1,7],
+        [8,9,2],
+        [3,4,6]]
+
+Repeated = 9
+Missing = 5
+
+Output: [9,5]
+
+## HashSet Approach
+
+### Complexity
+Time Complexity: O(n²)
+Space Complexity: O(n²)
+
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+
+        int n = grid.length;
+        Set<Integer> set = new HashSet<>();
+
+        int repeated = -1;
+
+        for (int[] row : grid) {
+            for (int num : row) {
+                if (!set.add(num)) {
+                    repeated = num;
+                }
+            }
+        }
+
+        int missing = -1;
+
+        for (int i = 1; i <= n * n; i++) {
+            if (!set.contains(i)) {
+                missing = i;
+                break;
+            }
+        }
+
+        return new int[]{repeated, missing};
+    }
+}
+
 *******************************************************************************/
 *******************************************************************************/
 *******************************************************************************/

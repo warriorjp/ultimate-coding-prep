@@ -1,1 +1,183 @@
+*******************************************************************************
+
+✅ Binary Search: Iterative approach
+Time Complexity: O(logn)
+Space Complexity: O(logn)
+
+public int binarySearch(int[] arr, int target) {
+    int low = 0, high = arr.length - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] < target)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1; // Not found
+}
+
+------------------------------------------------------------
+✅ For Unsorted Array: Use Two-Pointer Technique
+
+    static boolean findPair(int[] arr, int target) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num: arr) {
+            int complement = target - num;
+            if (set.contains(complement)) {
+                System.out.println("Pair is: (" + num + ", " + complement + ")");
+                return true;
+            }
+            set.add(num);
+        }
+
+        return false;
+    }
+------------------------------------------------------------
+
+✅ Find a Pair of sums for target value  :
+For Sorted Array: Use Two-Pointer Technique
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+
+public static void findPairsSorted(int[] arr, int targetSum) {
+    int left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == targetSum) {
+            System.out.println("(" + arr[left] + ", " + arr[right] + ")");
+            left++;
+            right--;
+        } else if (sum < targetSum) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+}
+
+------------------------------------------------------------
+
+✅ Search in Rotated Sorted Array:
+Time Complexity: O(logn)
+Space Complexity: O(1)
+
+int arr[]={4,5,6,7,0,1,2};
+int tar=0;
+
+public static int rotatedSearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            return mid;
+        }
+
+        // Left half is sorted
+        if (arr[left] <= arr[mid]) {
+            if (arr[left] <= target && target < arr[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        // Right half is sorted
+        else {
+            if (arr[mid] < target && target <= arr[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    return -1;
+}
+
+*******************************************************************************/
+✅ Square of Sorted Array:
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+
+import java.util.*;
+public class Main
+{
+    // Example usage
+    public static void main(String[] args) {
+        int[] nums = {-7, -3, 2, 3, 11};
+        int[] squaredSorted = sortedSquares(nums);
+        System.out.println(Arrays.toString(squaredSorted));
+    }
+    
+    public static int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        int left = 0, right = n - 1;
+        int pos = n - 1;
+
+        while (left <= right) {
+            int leftSq = nums[left] * nums[left];
+            int rightSq = nums[right] * nums[right];
+
+            if (leftSq > rightSq) {
+                result[pos] = leftSq;
+                left++;
+            } else {
+                result[pos] = rightSq;
+                right--;
+            }
+            pos--;
+        }
+
+        return result;
+    }
+}
+*******************************************************************************/
+✅ Max sum of sub-array:  Kadane’s Algorithm 
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+    int arr[]={1,-4,1,2,8,-3,4,5,-1};
+    maxSubArraySum(arr);
+	}
+	
+public static void maxSubArraySum(int[] arr) {
+       int currentSum=0;
+       int maxSum=0;
+       for(int num:arr){
+           currentSum+=num;
+           maxSum=Math.max(currentSum,maxSum);
+           if(currentSum<0){
+               currentSum=0;
+           }
+       }
+       System.out.println("maxSubArraySum : "+maxSum); 
+}
+}
+
+*******************************************************************************
+
+
+
+*******************************************************************************/
+*******************************************************************************/
+*******************************************************************************/
+*******************************************************************************/
+
+
+
+
+
 

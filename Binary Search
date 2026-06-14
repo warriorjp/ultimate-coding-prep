@@ -37,7 +37,32 @@ public static int rotatedSearch(int[] arr, int target) {
 }
 
 *******************************************************************************
+✅ Peak Index in a Mountain Array
 
+Input:  [0,2,1,0]
+Output: 1
+
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left < right) {
+
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] < arr[mid + 1]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+
+        return left;
+    }
+}
+*******************************************************************************
 ✅ Max sum of sub-array:  Kadane’s Algorithm 
 Time Complexity: O(n)
 Space Complexity: O(1)

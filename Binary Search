@@ -111,6 +111,8 @@ public int binarySearch(int[] arr, int target) {
 
 ------------------------------------------------------------
 ✅ For Unsorted Array: Use Two-Pointer Technique
+int[] nums = {4, 2, 7, 5};
+int target = 9;
 
     static boolean findPair(int[] arr, int target) {
         HashSet<Integer> set = new HashSet<>();
@@ -130,6 +132,8 @@ public int binarySearch(int[] arr, int target) {
 
 ✅ Find a Pair of sums for target value  :
 For Sorted Array: Use Two-Pointer Technique
+int[] nums = {4, 2, 7, 5};
+int target = 9;
 
 Time Complexity: O(n)
 Space Complexity: O(1)

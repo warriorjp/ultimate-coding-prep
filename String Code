@@ -46,7 +46,7 @@ class Solution {
             return false;
         }
 
-        char[] s1Input: s = "the sky is blue"
+        char[] s1 = t.toCharArray();
         char[] s2 = t.toCharArray();
 
         Arrays.sort(s1);

@@ -1,4 +1,4 @@
-Find kth max element:
+✅ Find kth max element:
 Whenever you put numbers inside a priority queue, it automatically keeps the smallest number at the top.
 
 nums = [3,2,1,5,6,4]

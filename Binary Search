@@ -110,7 +110,7 @@ public int binarySearch(int[] arr, int target) {
 }
 
 ------------------------------------------------------------
-✅ For Unsorted Array: Use Two-Pointer Technique
+✅ For Unsorted Array: Used HashSet
 int[] nums = {4, 2, 7, 5};
 int target = 9;
 

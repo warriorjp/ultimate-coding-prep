@@ -110,7 +110,11 @@ public int binarySearch(int[] arr, int target) {
 }
 
 ------------------------------------------------------------
+<<<<<<< HEAD
 ✅ For Unsorted Array: Used HashSet
+=======
+✅ For Unsorted Array: Using hashSet
+>>>>>>> branch 'main' of https://github.com/warriorjp/ultimate-coding-prep.git
 int[] nums = {4, 2, 7, 5};
 int target = 9;
 

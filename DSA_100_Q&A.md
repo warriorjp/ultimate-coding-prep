@@ -104,6 +104,16 @@ public List<List<String>> groupAnagrams(String[] strs) {
 **Approach:** HashMap + Min Heap (Most Common Interview Solution)  
 **Time:** O(n) | **Space:** O(n)
 
+Input:
+
+nums = [1,1,1,2,2,3]
+
+k = 2
+
+Output:
+
+[1,2]
+
 ```java
 
 import java.util.*;
@@ -143,6 +153,41 @@ class Solution {
 }
 
 ```
+---
+**Kth Largest Element in an Array**
+
+nums = [3,2,1,5,6,4]
+
+k = 2
+
+Output:
+
+5
+```java
+import java.util.PriorityQueue;
+
+class Solution {
+
+    public int findKthLargest(int[] nums, int k) {
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        for (int num : nums) {
+
+            minHeap.offer(num);
+
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        return minHeap.peek();
+    }
+}
+```
+
+
+
 ---
 
 ### Q6. Product of Array Except Self (Medium)

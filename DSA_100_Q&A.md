@@ -85,15 +85,24 @@ public boolean isAnagram(String s, String t) {
 **Time:** O(n * k log k) | **Space:** O(n * k)
 
 ```java
-public List<List<String>> groupAnagrams(String[] strs) {
-    Map<String, List<String>> map = new HashMap<>();
-    for (String s : strs) {
-        char[] chars = s.toCharArray();
-        Arrays.sort(chars);
-        String key = new String(chars);
-        map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+
+        char[] s1 = t.toCharArray();
+        char[] s2 = t.toCharArray();
+
+        Arrays.sort(s1);
+        Arrays.sort(s2);
+
+        return Arrays.equals(s1,s2);
+
     }
-    return new ArrayList<>(map.values());
 }
 ```
 **Optimization:** Use frequency string as key: "a2b1" instead of sorting (O(k) vs O(k log k)).

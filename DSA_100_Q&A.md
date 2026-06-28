@@ -101,33 +101,48 @@ public List<List<String>> groupAnagrams(String[] strs) {
 ---
 
 ### Q5. Top K Frequent Elements (Medium)
-**Approach:** Bucket Sort (frequency as index)  
+**Approach:** HashMap + Min Heap (Most Common Interview Solution)  
 **Time:** O(n) | **Space:** O(n)
 
 ```java
-public int[] topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> freq = new HashMap<>();
-    for (int n : nums) freq.merge(n, 1, Integer::sum);
 
-    List<Integer>[] bucket = new List[nums.length + 1];
-    for (int key : freq.keySet()) {
-        int f = freq.get(key);
-        if (bucket[f] == null) bucket[f] = new ArrayList<>();
-        bucket[f].add(key);
-    }
+import java.util.*;
 
-    int[] result = new int[k];
-    int idx = 0;
-    for (int i = bucket.length - 1; i >= 0 && idx < k; i--) {
-        if (bucket[i] != null)
-            for (int n : bucket[i])
-                if (idx < k) result[idx++] = n;
+class Solution {
+
+    public int[] topKFrequent(int[] nums, int k) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Count frequency
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);   //this way we get the value or default 0 then we add +1
+        }
+
+        // Min Heap based on frequency
+        PriorityQueue<Map.Entry<Integer, Integer>> pq =
+                new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());     //set queue min value based on top
+
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+
+            pq.offer(entry);
+
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        int[] result = new int[k];
+
+        for (int i = k - 1; i >= 0; i--) {
+            result[i] = pq.poll().getKey();
+        }
+
+        return result;
     }
-    return result;
 }
-```
-**Why bucket sort over heap:** O(n) vs O(n log k). Frequency is bounded by array length.
 
+```
 ---
 
 ### Q6. Product of Array Except Self (Medium)

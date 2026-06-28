@@ -66,14 +66,32 @@ public boolean containsDuplicate(int[] nums) {
 **Time:** O(n) | **Space:** O(1)
 
 ```java
-public boolean isAnagram(String s, String t) {
-    if (s.length() != t.length()) return false;
-    int[] count = new int[26];
-    for (char c : s.toCharArray()) count[c - 'a']++;
-    for (char c : t.toCharArray()) {
-        if (--count[c - 'a'] < 0) return false;
+class Solution {
+
+    public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] freq = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+
+            freq[s.charAt(i) - 'a']++;
+
+            freq[t.charAt(i) - 'a']--;
+        }
+
+        for (int count : freq) {
+
+            if (count != 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
-    return true;
 }
 ```
 **Follow-up:** Unicode chars? Use HashMap instead of int[26].
@@ -85,23 +103,37 @@ public boolean isAnagram(String s, String t) {
 **Time:** O(n * k log k) | **Space:** O(n * k)
 
 ```java
-Input: s = "anagram", t = "nagaram"
-Output: true
+Input:
+strs = ["eat","tea","tan","ate","nat","bat"]
+
+Output:
+[
+  ["eat","tea","ate"],
+  ["tan","nat"],
+  ["bat"]
+]
+import java.util.*;
 
 class Solution {
-    public boolean isAnagram(String s, String t) {
-        if(s.length()!=t.length()){
-            return false;
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String word : strs) {
+
+            char[] arr = word.toCharArray();
+
+            Arrays.sort(arr);
+
+            String key = new String(arr);
+
+            map.putIfAbsent(key, new ArrayList<>());
+
+            map.get(key).add(word);
         }
 
-        char[] s1 = t.toCharArray();
-        char[] s2 = t.toCharArray();
-
-        Arrays.sort(s1);
-        Arrays.sort(s2);
-
-        return Arrays.equals(s1,s2);
-
+        return new ArrayList<>(map.values());
     }
 }
 ```

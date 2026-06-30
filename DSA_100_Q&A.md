@@ -357,26 +357,30 @@ public int[] twoSum(int[] numbers, int target) {
 ### Q10. 3Sum (Medium)
 **Approach:** Sort + Two Pointers, skip duplicates carefully  
 **Time:** O(n^2) | **Space:** O(1)
+For Sorted Array: Use Two-Pointer Technique
+
+int[] nums = {4, 2, 7, 5};
+
+int target = 9;
 
 ```java
-public List<List<Integer>> threeSum(int[] nums) {
-    Arrays.sort(nums);
-    List<List<Integer>> res = new ArrayList<>();
-    for (int i = 0; i < nums.length - 2; i++) {
-        if (i > 0 && nums[i] == nums[i-1]) continue;
-        int l = i + 1, r = nums.length - 1;
-        while (l < r) {
-            int sum = nums[i] + nums[l] + nums[r];
-            if (sum == 0) {
-                res.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                while (l < r && nums[l] == nums[l+1]) l++;
-                while (l < r && nums[r] == nums[r-1]) r--;
-                l++; r--;
-            } else if (sum < 0) l++;
-            else r--;
+public static void findPairsSorted(int[] arr, int targetSum) {
+    int left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == targetSum) {
+            System.out.println("(" + arr[left] + ", " + arr[right] + ")");
+            left++;
+            right--;
+        } else if (sum < targetSum) {
+            left++;
+        } else {
+            right--;
         }
     }
-    return res;
+}
+
 }
 ```
 **Interview note:** Duplicate skipping is the hardest part - skip both outer `i` loop and inner `l`/`r` pointers.

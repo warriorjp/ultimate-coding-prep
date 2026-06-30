@@ -434,6 +434,15 @@ public int trap(int[] height) {
 **Approach:** Track running minimum, compute max profit  
 **Time:** O(n) | **Space:** O(1)
 
+prices = [7,1,5,3,6,4]
+
+Output:
+
+5
+
+Buy at 1 and sell at 6.
+
+
 ```java
 public int maxProfit(int[] prices) {
     int minPrice = Integer.MAX_VALUE, maxProfit = 0;

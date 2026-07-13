@@ -39,3 +39,62 @@ public class CircularRotation {
 ```
 
 ---
+
+
+***2.✅ Find a Pair of sums for target value  :**
+
+For Sorted Array: Use Two-Pointer Technique
+
+int[] nums = {4, 2, 7, 5};
+
+int target = 9;
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+```java
+public static void findPairsSorted(int[] arr, int targetSum) {
+    int left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == targetSum) {
+            System.out.println("(" + arr[left] + ", " + arr[right] + ")");
+            left++;
+            right--;
+        } else if (sum < targetSum) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+}
+```
+---
+
+**3.✅ For Unsorted Array: Using hashSet**
+
+int[] nums = {4, 2, 7, 5};
+
+int target = 9;
+
+```
+    static boolean findPair(int[] arr, int target) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num: arr) {
+            int complement = target - num;
+            if (set.contains(complement)) {
+                System.out.println("Pair is: (" + num + ", " + complement + ")");
+                return true;
+            }
+            set.add(num);
+        }
+
+        return false;
+    }
+
+```
+
+---

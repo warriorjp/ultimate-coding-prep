@@ -98,3 +98,124 @@ int target = 9;
 ```
 
 ---
+
+**4.Valid Anagram (Easy)**
+
+Approach: Frequency count array (26 chars)
+
+Time: O(n) | Space: O(1)
+
+```
+class Solution {
+
+    public boolean isAnagram(String s, String t) {
+
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] freq = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+
+            freq[s.charAt(i) - 'a']++;
+
+            freq[t.charAt(i) - 'a']--;
+        }
+
+        for (int count : freq) {
+
+            if (count != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+```
+---
+
+**5.Group Anagrams (Medium)**
+Approach: Sort each word as key in HashMap
+
+Time: O(n * k log k) | Space: O(n * k)
+
+Input:
+
+strs = ["eat","tea","tan","ate","nat","bat"]
+
+Output:
+
+[
+  ["eat","tea","ate"],
+  
+  ["tan","nat"],
+  
+  ["bat"]
+  
+]
+
+```
+import java.util.*;
+
+class Solution {
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String word : strs) {
+
+            char[] arr = word.toCharArray();
+
+            Arrays.sort(arr);
+
+            String key = new String(arr);
+
+            map.putIfAbsent(key, new ArrayList<>());
+
+            map.get(key).add(word);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+}
+```
+
+---
+
+Kth Largest Element in an Array
+
+nums = [3,2,1,5,6,4]
+
+k = 2
+
+Output:
+
+5
+
+```
+import java.util.PriorityQueue;
+
+class Solution {
+
+    public int findKthLargest(int[] nums, int k) {
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        for (int num : nums) {
+
+            minHeap.offer(num);
+
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        return minHeap.peek();
+    }
+}
+```
+
+---

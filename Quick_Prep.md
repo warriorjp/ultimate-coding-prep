@@ -41,7 +41,7 @@ public class CircularRotation {
 ---
 
 
-***2.✅ Find a Pair of sums for target value  :**
+***2.Find a Pair of sums for target value  :**
 
 For Sorted Array: Use Two-Pointer Technique
 
@@ -185,7 +185,7 @@ class Solution {
 
 ---
 
-Kth Largest Element in an Array
+**6.Kth Largest Element in an Array**
 
 nums = [3,2,1,5,6,4]
 
@@ -202,7 +202,12 @@ class Solution {
 
     public int findKthLargest(int[] nums, int k) {
 
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();   //by default it store max value at bottom
+
+        # To store max value at top 
+       // PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);  
+       // PriorityQueue<Integer> maxHeap =  new PriorityQueue<>(Collections.reverseOrder());
+ 
 
         for (int num : nums) {
 
@@ -218,4 +223,50 @@ class Solution {
 }
 ```
 
+---
+
+**7.Valid Palindrome (Easy)**
+
+Approach: Two pointers from both ends, skip non-alphanumeric
+
+Time: O(n) | Space: O(1)
+
+Input: s = "A man, a plan, a canal: Panama" 
+
+Output: true.
+
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+```
+class Solution {
+    public boolean isPalindrome(String s) {
+
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+            }
+
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+            }
+
+            if (Character.toLowerCase(s.charAt(left)) !=
+                Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
+```
 ---

@@ -266,7 +266,7 @@ class Solution {
 ```
 ---
 
-**Valid Parentheses (Easy)**
+**8.Valid Parentheses (Easy)**
 
 Approach: Stack - push open brackets, match on close
 
@@ -296,5 +296,24 @@ public boolean isValid(String s) {
         }
     }
     return stack.isEmpty();
+}
+```
+---
+**9.Binary Search**
+
+Time: O(log n) | Space: O(1)
+    
+    int[] num = {2,3,4,5,6,7,8,9};
+    target = 5;
+```
+public int search(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left <= right) {
+        int mid = left + (right - l) / 2; // avoids integer overflow
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
 }
 ```

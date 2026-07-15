@@ -5,12 +5,10 @@ Given two strings original and input, determine whether input is a circular rota
 A circular rotation means you can rotate the original string any number of times and obtain the input.
 
 Examples
-
-original = "ABCD"
-
-input    = "CDAB"
-
-Output: true
+    original = "ABCD"
+    input    = "CDAB"
+    
+    Output: true
 
 ```java
 public class CircularRotation {
@@ -45,13 +43,14 @@ public class CircularRotation {
 
 For Sorted Array: Use Two-Pointer Technique
 
-int[] nums = {4, 2, 7, 5};
-
-int target = 9;
 
 Time Complexity: O(n)
 
 Space Complexity: O(1)
+
+    int[] nums = {4, 2, 7, 5};
+    
+    int target = 9;
 
 ```java
 public static void findPairsSorted(int[] arr, int targetSum) {
@@ -75,9 +74,9 @@ public static void findPairsSorted(int[] arr, int targetSum) {
 
 **3.✅ For Unsorted Array: Using hashSet**
 
-int[] nums = {4, 2, 7, 5};
-
-int target = 9;
+    int[] nums = {4, 2, 7, 5};
+    
+    int target = 9;
 
 ```
     static boolean findPair(int[] arr, int target) {
@@ -141,20 +140,19 @@ Approach: Sort each word as key in HashMap
 
 Time: O(n * k log k) | Space: O(n * k)
 
-Input:
-
-strs = ["eat","tea","tan","ate","nat","bat"]
-
-Output:
-
-[
-  ["eat","tea","ate"],
-  
-  ["tan","nat"],
-  
-  ["bat"]
-  
-]
+    Input:
+    strs = ["eat","tea","tan","ate","nat","bat"]
+    
+    Output:
+    
+    [
+      ["eat","tea","ate"],
+      
+      ["tan","nat"],
+      
+      ["bat"]
+      
+    ]
 
 ```
 import java.util.*;
@@ -187,13 +185,10 @@ class Solution {
 
 **6.Kth Largest Element in an Array**
 
-nums = [3,2,1,5,6,4]
-
-k = 2
-
-Output:
-
-5
+    nums = [3,2,1,5,6,4]
+    k = 2
+    Output:
+    5
 
 ```
 import java.util.PriorityQueue;
@@ -231,11 +226,11 @@ Approach: Two pointers from both ends, skip non-alphanumeric
 
 Time: O(n) | Space: O(1)
 
-Input: s = "A man, a plan, a canal: Panama" 
-
-Output: true.
-
-Explanation: "amanaplanacanalpanama" is a palindrome.
+    Input: s = "A man, a plan, a canal: Panama" 
+    
+    Output: true.
+    
+    Explanation: "amanaplanacanalpanama" is a palindrome.
 
 ```
 class Solution {
@@ -270,3 +265,36 @@ class Solution {
 }
 ```
 ---
+
+**Valid Parentheses (Easy)**
+
+Approach: Stack - push open brackets, match on close
+
+Time: O(n) | Space: O(n)
+
+**Example**
+
+    Input: "()[]{}"
+    
+    Output: true
+    
+    Input: "([)]"
+    
+    Output: false
+
+```
+public boolean isValid(String s) {
+    Deque<Character> stack = new ArrayDeque<>();
+    for (char c : s.toCharArray()) {
+        if (c == '(' || c == '{' || c == '[') stack.push(c);
+        else {
+            if (stack.isEmpty()) return false;
+            char top = stack.pop();
+            if (c == ')' && top != '(') return false;
+            if (c == '}' && top != '{') return false;
+            if (c == ']' && top != '[') return false;
+        }
+    }
+    return stack.isEmpty();
+}
+```

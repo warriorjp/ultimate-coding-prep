@@ -318,7 +318,7 @@ public int search(int[] nums, int target) {
 }
 ```
 
-**10.Given an unsorted array of length n, find the smallest missing positive integer
+**10.Given an unsorted array of length n, find the smallest missing positive integer**
 
 The best possible approach is:
 
@@ -360,3 +360,56 @@ public int firstMissingPositive(int[] nums) {
     return n + 1;
 }
 ```
+
+**11 . Given a binary matrix (containing only 0s and 1s), find the row that contains the maximum number of 1s.**
+
+Example :
+
+        int[][] arr = {
+            {0, 1, 1, 1},
+            {0, 0, 1, 1},
+            {1, 1, 1, 1},
+            {0, 0, 0, 1}
+        };
+
+Result :
+
+        Row = 2
+        Count = 4
+
+Code :
+
+    public class Main {
+
+    public static void main(String[] args) {
+
+        int[][] arr = {
+                {0,1,1,1},
+                {0,0,1,1},
+                {1,1,1,1},
+                {0,0,0,1}
+        };
+
+        int maxCount = 0;
+        int rowIndex = -1;
+
+        for(int i = 0; i < arr.length; i++) {
+
+            int count = 0;
+
+            for(int j = 0; j < arr[i].length; j++) {
+                if(arr[i][j] == 1) {
+                    count++;
+                }
+            }
+
+            if(count > maxCount) {
+                maxCount = count;
+                rowIndex = i;
+            }
+        }
+
+        System.out.println("Row = " + rowIndex);
+        System.out.println("Maximum 1s = " + maxCount);
+    }
+}

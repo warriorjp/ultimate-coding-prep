@@ -1,4 +1,4 @@
-  ##  1.Problem Statement
+  ##  1. Problem Statement
 
 Given two strings original and input, determine whether input is a circular rotation of original.
 

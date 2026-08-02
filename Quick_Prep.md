@@ -1,4 +1,4 @@
-**1.Problem Statement**
+  ##  1.Problem Statement
 
 Given two strings original and input, determine whether input is a circular rotation of original.
 
@@ -39,7 +39,7 @@ public class CircularRotation {
 ---
 
 
-***2.Find a Pair of sums for target value  :**
+  ##  2.Find a Pair of sums for target value 
 
 For Sorted Array: Use Two-Pointer Technique
 
@@ -72,7 +72,7 @@ public static void findPairsSorted(int[] arr, int targetSum) {
 ```
 ---
 
-**3.✅ For Unsorted Array: Using hashSet**
+  ##  3.For Unsorted Array: Using hashSet
 
     int[] nums = {4, 2, 7, 5};
     
@@ -98,7 +98,7 @@ public static void findPairsSorted(int[] arr, int targetSum) {
 
 ---
 
-**4.Valid Anagram (Easy)**
+  ## 4.Valid Anagram (Easy)
 
 Approach: Frequency count array (26 chars)
 
@@ -135,7 +135,8 @@ class Solution {
 ```
 ---
 
-**5.Group Anagrams (Medium)**
+  ## 5.Group Anagrams (Medium)
+  
 Approach: Sort each word as key in HashMap
 
 Time: O(n * k log k) | Space: O(n * k)
@@ -183,7 +184,7 @@ class Solution {
 
 ---
 
-**6.Kth Largest Element in an Array**
+  ##  6.Kth Largest Element in an Array
 
     nums = [3,2,1,5,6,4]
     k = 2
@@ -220,7 +221,7 @@ class Solution {
 
 ---
 
-**7.Valid Palindrome (Easy)**
+  ##  7.Valid Palindrome (Easy)
 
 Approach: Two pointers from both ends, skip non-alphanumeric
 
@@ -266,7 +267,7 @@ class Solution {
 ```
 ---
 
-**8.Valid Parentheses (Easy)**
+  ##  8.Valid Parentheses (Easy)
 
 Approach: Stack - push open brackets, match on close
 
@@ -318,7 +319,7 @@ public int search(int[] nums, int target) {
 }
 ```
 
-**10.Given an unsorted array of length n, find the smallest missing positive integer**
+  ##  10.Given an unsorted array of length n, find the smallest missing positive integer
 
 The best possible approach is:
 
@@ -361,7 +362,7 @@ public int firstMissingPositive(int[] nums) {
 }
 ```
 
-**11 . Given a binary matrix (containing only 0s and 1s), find the row that contains the maximum number of 1s.**
+  ##  11 . Given a binary matrix (containing only 0s and 1s), find the row that contains the maximum number of 1s.
 
 Example :
 
@@ -415,6 +416,7 @@ Code :
   }
 
   ---
+  
   ## 12.Reverse a String Without Using Built-in Functions
 
          public class ReverseString {
@@ -441,3 +443,29 @@ Code :
             }
         }
 
+---
+
+  ##  13.Missing Integer
+
+    public int missingNumber_SumFormula(int[] arr) {
+        long n = arr.length + 1;         // largest element will number element + 1 (because missing 1 element missing) 
+        long expectedSum = n * (n + 1) / 2;
+        long actualSum   = 0;
+    
+        for (int num : arr) {
+            actualSum += num;
+        }
+    
+        return (int)(expectedSum - actualSum);
+    }
+
+```
+arr = [1, 2, 3, 5, 6]
+
+n = 6  (largest element, since one is missing)
+
+Expected sum = 6 × (6+1) / 2 = 21
+Actual sum   = 1+2+3+5+6    = 17
+
+Missing = 21 - 17 = 4 ✅
+```

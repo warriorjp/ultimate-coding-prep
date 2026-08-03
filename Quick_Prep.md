@@ -1,3 +1,13 @@
+| Pattern                    | Complexity |
+| -------------------------- | ---------- |
+| No loop                    | O(1)       |
+| One loop                   | O(n)       |
+| Nested loops               | O(n²)      |
+| `i *= 2`                   | O(log n)   |
+| `i /= 2`                   | O(log n)   |
+| Fixed inner loop (`j < 5`) | O(n)       |
+
+  
   ##  1. Problem Statement
 
 Given two strings original and input, determine whether input is a circular rotation of original.

@@ -517,3 +517,15 @@ Missing = 21 - 17 = 4 ✅
         return slow;
     }
 }
+
+---
+## Best time to sell stock
+
+        int[] arr={8,5,3,2,1,6,8,9};
+        int min=arr[0];
+        int max=arr[0];
+        for(int i=0;i<arr.length;i++){
+           min=Math.min(min,arr[i]);
+           max=Math.max(max,arr[i]);
+        }
+        System.out.println(min +" "+ max);

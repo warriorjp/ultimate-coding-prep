@@ -63,6 +63,7 @@ Space Complexity: O(1)
     int target = 9;
 
 ```java
+
 public static void findPairsSorted(int[] arr, int targetSum) {
     int left = 0, right = arr.length - 1;
 
@@ -88,7 +89,7 @@ public static void findPairsSorted(int[] arr, int targetSum) {
     
     int target = 9;
 
-```
+```java
     static boolean findPair(int[] arr, int target) {
         HashSet<Integer> set = new HashSet<>();
 
@@ -112,9 +113,11 @@ public static void findPairsSorted(int[] arr, int targetSum) {
 
 Approach: Frequency count array (26 chars)
 
+Exp: "listen" and "silent"
+
 Time: O(n) | Space: O(1)
 
-```
+```java
 class Solution {
 
     public boolean isAnagram(String s, String t) {
@@ -165,7 +168,7 @@ Time: O(n * k log k) | Space: O(n * k)
       
     ]
 
-```
+```java
 import java.util.*;
 
 class Solution {
@@ -201,7 +204,7 @@ class Solution {
     Output:
     5
 
-```
+```java
 import java.util.PriorityQueue;
 
 class Solution {
@@ -210,7 +213,7 @@ class Solution {
 
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();   //by default it store max value at bottom
 
-        # To store max value at top 
+        // To store max value at top 
        // PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);  
        // PriorityQueue<Integer> maxHeap =  new PriorityQueue<>(Collections.reverseOrder());
  
@@ -243,7 +246,7 @@ Time: O(n) | Space: O(1)
     
     Explanation: "amanaplanacanalpanama" is a palindrome.
 
-```
+```java
 class Solution {
     public boolean isPalindrome(String s) {
 
@@ -293,7 +296,7 @@ Time: O(n) | Space: O(n)
     
     Output: false
 
-```
+```java
 public boolean isValid(String s) {
     Deque<Character> stack = new ArrayDeque<>();
     for (char c : s.toCharArray()) {
@@ -310,19 +313,22 @@ public boolean isValid(String s) {
 }
 ```
 ---
-**9.Binary Search**
+## 9.Binary Search
 
 Time: O(log n) | Space: O(1)
     
     int[] num = {2,3,4,5,6,7,8,9};
     target = 5;
-```
+
+```java
 public int search(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
     while (left <= right) {
         int mid = left + (right - left) / 2; // avoids integer overflow
-        if (nums[mid] == target) return mid;
-        else if (nums[mid] < target) left = mid + 1;
+        if (nums[mid] == target) 
+            return mid;
+        else if (nums[mid] < target) 
+            left = mid + 1;
         else right = mid - 1;
     }
     return -1;
@@ -347,7 +353,7 @@ Example
 
     Ans : 2
 
-```
+```java
 public int firstMissingPositive(int[] nums) {
     int n = nums.length;
 
@@ -389,7 +395,7 @@ Result :
         Count = 4
 
 Code :
-
+```java
     public class Main {
 
     public static void main(String[] args) {
@@ -424,11 +430,12 @@ Code :
         System.out.println("Maximum 1s = " + maxCount);
     }
   }
-
-  ---
+```
+---
   
   ## 12.Reverse a String Without Using Built-in Functions
 
+```java
          public class ReverseString {
         
             public static void main(String[] args) {
@@ -452,11 +459,12 @@ Code :
                 System.out.println(new String(arr));
             }
         }
-
+```
 ---
 
   ##  13.Missing Integer
 
+```java
     public int missingNumber_SumFormula(int[] arr) {
         long n = arr.length + 1;         // largest element will number element + 1 (because missing 1 element missing) 
         long expectedSum = n * (n + 1) / 2;
@@ -468,7 +476,6 @@ Code :
     
         return (int)(expectedSum - actualSum);
     }
-
 ```
 arr = [1, 2, 3, 5, 6]
 
@@ -478,12 +485,14 @@ Expected sum = 6 × (6+1) / 2 = 21
 Actual sum   = 1+2+3+5+6    = 17
 
 Missing = 21 - 17 = 4 ✅
-```
----
 
+```
+ 
 ## Move Zero To Right
 
-      public static void moveZeroes(int[] nums) {
+```java
+
+    public static void moveZeroes(int[] nums) {
       
           int j = 0;
       
@@ -499,11 +508,12 @@ Missing = 21 - 17 = 4 ✅
               }
           }
       }
-
+```
  ----
 
  ## Find Mid in linkedList
 
+```java
     static ListNode findMiddle(ListNode head) {
 
         ListNode slow = head;
@@ -516,11 +526,13 @@ Missing = 21 - 17 = 4 ✅
 
         return slow;
     }
-}
+ }
+
+```
 
 ---
 ## Best time to sell stock
-
+```java
         int[] arr={8,5,3,2,1,6,8,9};
         int min=arr[0];
         int max=arr[0];
@@ -529,10 +541,11 @@ Missing = 21 - 17 = 4 ✅
            max=Math.max(max,arr[i]);
         }
         System.out.println(min +" "+ max);
-
+```
 ---
-## Remove Duplicate element
 
+## Remove Duplicate element
+```java
          class Solution {
             public int removeDuplicates(int[] nums) {
                 if (nums.length == 0) return 0;
@@ -549,3 +562,4 @@ Missing = 21 - 17 = 4 ✅
                 return i + 1;
             }
         }
+```
